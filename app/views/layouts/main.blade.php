@@ -60,12 +60,14 @@
   </script>
 
   <script>
-    $(function){
-      $('.collapse').collapse()
-    };
+    $(function(){
+      $(document).ready(function () {
+        location.hash && $(location.hash + '.collapse').collapse('show');
+      });
+    });
   </script>
 
-    <title>Laravel 4 CRUD</title>
+    <title>EPC Admin</title>
   </head>
  
   <body>

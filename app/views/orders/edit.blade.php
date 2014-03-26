@@ -7,12 +7,12 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+        <a data-toggle="collapse" class="nav-tabs" href="#collapseOne">
           Order Details
         </a>
       </h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in">
+    <div id="collapseOne" class="panel-collapse collapse ">
       <div class="panel-body">
         {{ Form::text('order_date', null, array('class'=>'form-control datepicker', 'placeholder'=>'Order Date')) }}
 		{{ Form::text('epc_name', null, array('class'=>'form-control', 'placeholder'=>'EPC Name')) }}
@@ -48,7 +48,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+        <a data-toggle="collapse" class="nav-tabs" href="#collapseTwo">
           Invoice Details
         </a>
       </h4>
@@ -74,7 +74,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+        <a data-toggle="collapse" class="nav-tabs" href="#collapseThree">
           Assessor Invoice Reference
         </a>
       </h4>
@@ -95,7 +95,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+        <a data-toggle="collapse" class="nav-tabs" href="#collapseFour">
           Survey Appointment Details
         </a>
       </h4>

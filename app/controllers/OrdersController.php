@@ -15,8 +15,9 @@ class OrdersController extends \BaseController {
 	
 	public function index()
 	{
-		$orders = Order::all();
-		$agents = User::all();	
+		//$orders = Order::all();
+		$orders = DB::table('orders')->paginate(10);
+		$users = User::all();
 		$this->layout->content = View::make('orders.index', compact('orders'), compact('agents'));
 	}
 

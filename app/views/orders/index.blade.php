@@ -17,18 +17,18 @@
 		Agent<br>
 		<select name="search_order_agent" class="form-control">
 			<option value="">Please Select an Agent</option>
-	      @foreach($agents as $key => $value)
-	        <option value="{{ $value->firstname }}">{{ $value->firstname }}</option>
+	      @foreach(User::where('type', '=', 'Agent')->get() as $agent)
+	        <option value="{{ $agent->firstname }} {{ $agent->lastname }}">{{ $agent->firstname }} {{ $agent->lastname }}</option>
 	      @endforeach
 	    </select>
 	</div>
 	<div class="col-md-4">
 		Assessor<br>
-		<select name="search_order_agent" class="form-control">
+		<select name="search_order_assessor" class="form-control">
 			<option value="">Please Select an Assessor</option>
-	      @foreach($agents as $key => $value)
-	        <option value="{{ $value->firstname }}">{{ $value->firstname }}</option>
-	      @endforeach
+	     	@foreach(User::where('type', '=', 'Assessor')->get() as $assessor)
+	        <option value="{{ $assessor->firstname }} {{ $assessor->lastname }}">{{ $assessor->firstname }} {{ $assessor->lastname }}</option>
+	      	@endforeach
 	    </select>
 	</div>
 	<div class="col-md-4">
@@ -38,6 +38,7 @@
 	<div class="clearfix"></div>
 	<div class="cod-md-4">
 		{{ Form::submit('Search', array('class'=>'btn btn-small btn-success search-btn')) }}
+		<a class="btn btn-small btn-info" href="orders">Reset</a>
 		{{ Form::close() }}
 	</div>
 		
@@ -97,7 +98,7 @@
 					<!-- <a class="btn btn-small btn-success" href="{{ URL::to('orders/' . $value->id) }}">Show</a> -->
 
 					<!-- edit this nerd (uses the edit method found at GET /nerds/{id}/edit -->
-					<a class="btn btn-small btn-info" href="{{ URL::to('orders/' . $value->id . '/edit') }}">Edit</a>
+					<a class="btn btn-small btn-info" href="{{ URL::to('orders/' . $value->id . '/edit#collapseOne') }}">Edit</a>
 
 					{{ Form::open(array('url' => 'orders/' . $value->id, 'class' => 'delete-btn')) }}
 						{{ Form::hidden('_method', 'DELETE') }}
@@ -151,7 +152,7 @@
 					<!-- <a class="btn btn-small btn-success" href="{{ URL::to('orders/' . $value->id) }}">Show</a> -->
 
 					<!-- edit this nerd (uses the edit method found at GET /nerds/{id}/edit -->
-					<a class="btn btn-small btn-info" href="{{ URL::to('orders/' . $value->id . '/edit') }}">Edit</a>
+					<a class="btn btn-small btn-info" href="{{ URL::to('orders/' . $value->id . '/edit#collapseTwo') }}">Edit</a>
 
 					{{ Form::open(array('url' => 'orders/' . $value->id, 'class' => 'delete-btn')) }}
 						{{ Form::hidden('_method', 'DELETE') }}
@@ -195,7 +196,7 @@
 					<!-- <a class="btn btn-small btn-success" href="{{ URL::to('orders/' . $value->id) }}">Show</a> -->
 
 					<!-- edit this nerd (uses the edit method found at GET /nerds/{id}/edit -->
-					<a class="btn btn-small btn-info" href="{{ URL::to('orders/' . $value->id . '/edit') }}">Edit</a>
+					<a class="btn btn-small btn-info" href="{{ URL::to('orders/' . $value->id . '/edit#collapseThree') }}">Edit</a>
 
 					{{ Form::open(array('url' => 'orders/' . $value->id, 'class' => 'delete-btn')) }}
 						{{ Form::hidden('_method', 'DELETE') }}
@@ -237,7 +238,7 @@
 					<!-- <a class="btn btn-small btn-success" href="{{ URL::to('orders/' . $value->id) }}">Show</a> -->
 
 					<!-- edit this nerd (uses the edit method found at GET /nerds/{id}/edit -->
-					<a class="btn btn-small btn-info" href="{{ URL::to('orders/' . $value->id . '/edit') }}">Edit</a>
+					<a class="btn btn-small btn-info" href="{{ URL::to('orders/' . $value->id . '/edit#collapseFour') }}">Edit</a>
 
 					{{ Form::open(array('url' => 'orders/' . $value->id, 'class' => 'delete-btn')) }}
 						{{ Form::hidden('_method', 'DELETE') }}
@@ -253,3 +254,4 @@
 </div>
 <hr>
 @endforeach
+<?php echo $orders->links(); ?>
