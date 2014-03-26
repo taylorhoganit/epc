@@ -265,9 +265,13 @@ class OrdersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		Order::destroy($id);
+		// delete
+		$order = Order::find($id);
+		$order->delete();
 
-		return Redirect::route('orders.index');
+		// redirect
+		Session::flash('message', 'Successfully deleted the Order!');
+		return Redirect::to('orders');
 	}	
 
 }

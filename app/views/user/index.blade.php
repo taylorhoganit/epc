@@ -1,4 +1,9 @@
-<h1>Users</h1>
+<div class="col-md-6">
+	<h1>Users</h1>
+</div>
+<div class="cod-md-6 text-right">
+	<a class="btn btn-small btn-info" href="{{ URL::to('users/register') }}">Add New User</a>
+</div>
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
 	<div class="alert alert-info">{{ Session::get('message') }}</div>

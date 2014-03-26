@@ -2,6 +2,11 @@ body {
     padding-top: 20px;
 }
 
+h1, .h1, h2, .h2, h3, .h3 {
+	margin-top: 0px!important;
+	margin-bottom: 5px!important;
+}
+
 .content-main {
 	margin-top: 10px;
 }
@@ -15,6 +20,29 @@ body {
 	margin-bottom: 10px;
 }
 
+.search {
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+.search-btn {
+	margin-left: 15px;
+}
+
+.order {
+	border: 1px dashed #ccc;
+	padding: 10px;
+}
+
+.actions-col {
+	width: 145px;
+}
+
+.delete-btn {
+	float: right;
+	margin-left: 0px;
+}
+
 .hidden {
 	display: none;
 }
@@ -23,3 +51,16 @@ body {
 	cursor: pointer;
 }
 
+.nav-selected {
+	color: #5cb85c;
+	font-weight: bold;
+}
+
+.half {
+	float: left;
+	max-width: 45%;
+}
+
+.last {
+	float: right;
+}
