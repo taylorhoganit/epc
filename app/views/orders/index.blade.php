@@ -1,10 +1,45 @@
 <div class="col-md-12">
-	<div class="search">
-		{{ Form::model(null, array('url' => array('orders/index'))) }}
-		{{ Form::text('query', null, array( 'placeholder' => 'Search query...' )) }}
-		{{ Form::submit('Search') }}
+	{{ Form::model(null, array('url' => array('orders/index'))) }}
+	<div class="col-md-4">
+		Order Date<br>
+		{{ Form::text('search_order_date', null, array('class'=>'form-control', 'placeholder'=>'Order Date')) }}
+	</div>
+	<div class="col-md-4">
+		Order Date<br>
+		{{ Form::select('search_order_type', array(''=>'Select Order Type', 'Commercial'=>'Commercial', 'Domestic'=>'Domestic', 'On Construction'=>'On Construction', 'SBEM New Build'=>'SBEM New Build'), $selected = NULL,  array('class' => 'form-control')) }}
+	</div>
+	<div class="col-md-4">
+		Order Status<br>
+		{{ Form::select('search_order_status', array(''=>'Select EPC Status', 'Quoted'=>'Quoted', 'Instructed - To Schedule'=>'Instructed - To Schedule', 'To Survey'=>'To Survey', 'To Input'=>'To Input', 'Awaiting Payment - Report Produced'=>'Awaiting Payment - Report Produced', 'To Send'=>'To Send', 'Completed'=>'Completed', 'Cancelled'=>'Cancelled', 'On Hold'=>'On Hold'), $selected = NULL,  array('class' => 'form-control')) }}
+	</div>
+	<div class="col-md-4">
+		Agent<br>
+		<select name="search_order_agent" class="form-control">
+			<option value="">Please Select an Agent</option>
+	      @foreach($agents as $key => $value)
+	        <option value="{{ $value->firstname }}">{{ $value->firstname }}</option>
+	      @endforeach
+	    </select>
+	</div>
+	<div class="col-md-4">
+		Assessor<br>
+		<select name="search_order_agent" class="form-control">
+			<option value="">Please Select an Assessor</option>
+	      @foreach($agents as $key => $value)
+	        <option value="{{ $value->firstname }}">{{ $value->firstname }}</option>
+	      @endforeach
+	    </select>
+	</div>
+	<div class="col-md-4">
+		Postcode<br>
+		{{ Form::text('search_order_postcode', null, array('class'=>'form-control', 'placeholder'=>'Order Postcode')) }}
+	</div>
+	<div class="clearfix"></div>
+	<div class="cod-md-4">
+		{{ Form::submit('Search', array('class'=>'btn btn-small btn-success')) }}
 		{{ Form::close() }}
 	</div>
+		
 </div>
 <h1>Jobs</h1>
 <!-- will be used to show any messages -->
@@ -18,7 +53,13 @@
 <div class="col-md-6">
 	<h4 class="text-right"><a class="btn btn-small btn-success" href="{{ URL::to('notes/' . $value->id . '/edit') }}">Notes</a>  <a class="btn btn-small btn-success" href="{{ URL::to('orders/' . $value->id . '/invoice') }}">Create Invoice</a> </h4>
 </div>
-<table class="table table-striped table-bordered">
+<div class="col-md-4">
+	<h5>Order Details</h5>
+</div>
+<div class="col-md-8 text-right">
+	<h5>Order Details | Invoice Details | Assessor Invoice Details | Survey Appointment Details</h5>
+</div>
+<table class="table table-striped table-bordered" style="display: none;">
 	<thead>
 		<tr>
 			<td>Order Date</td>
@@ -59,7 +100,55 @@
 			</td>
 		</tr>
 		</div>
-	
+	</tbody>
+</table>
+<table class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<td>Inv No</td>
+			<td>Inv Net</td>
+			<td>Inv VAT</td>
+			<td>Inv Tot</td>
+			<td>Inv Date</td>
+			<td>Inv Status</td>
+			<td>Inv Name</td>
+			<td>Inv Email</td>
+			<td>Inv Address</td>
+			<td>Due Date</td>
+			<td>Paid Date</td>
+			<td>Actions</td>
+		</tr>
+	</thead>
+	<tbody>
+	<div class="content-main">
+		<tr>
+			<td>{{ $value->inv_num }}</td>
+			<td>{{ $value->inv_net }}</td>
+			<td>{{ $value->inv_vat }}</td>
+			<td>{{ $value->inv_tot }}</td>
+			<td>{{ $value->inv_date }}</td>
+			<td>{{ $value->inv_status }}</td>
+			<td>{{ $value->inv_name }}</td>
+			<td>{{ $value->inv_email }}</td>
+			<td>{{ $value->inv_address }}</td>
+			<td>{{ $value->inv_due_date }}</td>
+			<td>{{ $value->inv_paid_date }}</td>
+
+			<!-- we will also add show, edit, and delete buttons -->
+			<td>
+
+				<!-- delete the nerd (uses the destroy method DESTROY /nerds/{id} -->
+				<!-- we will add this later since its a little more complicated than the other two buttons -->
+
+				<!-- show the nerd (uses the show method found at GET /nerds/{id} -->
+				<!-- <a class="btn btn-small btn-success" href="{{ URL::to('orders/' . $value->id) }}">Show</a> -->
+
+				<!-- edit this nerd (uses the edit method found at GET /nerds/{id}/edit -->
+				<a class="btn btn-small btn-info" href="{{ URL::to('orders/' . $value->id . '/edit') }}">Edit</a>
+
+			</td>
+		</tr>
+		</div>
 	</tbody>
 </table>
 <h4>{{ $value->doc1 }} | {{ $value->doc2 }} | {{ $value->doc3 }} | {{ $value->doc4 }} | {{ $value->doc5 }} </h4>

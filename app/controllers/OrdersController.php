@@ -16,8 +16,8 @@ class OrdersController extends \BaseController {
 	public function index()
 	{
 		$orders = Order::all();
-
-		$this->layout->content = View::make('orders.index', compact('orders'));
+		$agents = User::all();	
+		$this->layout->content = View::make('orders.index', compact('orders'), compact('agents'));
 	}
 
 	/**
