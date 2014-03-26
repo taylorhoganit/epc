@@ -8,6 +8,40 @@
   {{ HTML::script('js/jquery.js'); }}
   {{ HTML::script('js/bootstrap.min.js'); }}
   {{ HTML::script('js/transition.js'); }}
+  
+  <script> 
+    function changeDetails(name, value)
+    {
+      if (name == "order")
+      {
+        $('#order'+value).removeClass("hidden");
+        $('#invoice'+value).addClass("hidden");
+        $('#assessor'+value).addClass("hidden");
+        $('#survey'+value).addClass("hidden");
+      }
+      else if (name == "invoice")
+      {
+        $('#order'+value).addClass("hidden");
+        $('#invoice'+value).removeClass("hidden");
+        $('#assessor'+value).addClass("hidden");
+        $('#survey'+value).addClass("hidden");
+      }
+      else if (name == "assessor")
+      {
+        $('#order'+value).addClass("hidden");
+        $('#invoice'+value).addClass("hidden");
+        $('#assessor'+value).removeClass("hidden");
+        $('#survey'+value).addClass("hidden");
+      }
+      else if (name == "survey")
+      {
+        $('#order'+value).addClass("hidden");
+        $('#invoice'+value).addClass("hidden");
+        $('#assessor'+value).addClass("hidden");
+        $('#survey'+value).removeClass("hidden");
+      }
+    }
+  </script>
 
   <script>
     $(function){

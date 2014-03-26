@@ -14,3 +14,12 @@ body {
 .form-control {
 	margin-bottom: 10px;
 }
+
+.hidden {
+	display: none;
+}
+
+.table-nav{
+	cursor: pointer;
+}
+

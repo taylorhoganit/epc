@@ -57,9 +57,9 @@
 	<h5>Order Details</h5>
 </div>
 <div class="col-md-8 text-right">
-	<h5>Order Details | Invoice Details | Assessor Invoice Details | Survey Appointment Details</h5>
+	<h5><span class="table-nav" onclick="changeDetails('order', {{ $value->id }});">Order Details</span> | <span class="table-nav" onclick="changeDetails('invoice', {{ $value->id }});">Invoice Details</span> | <span class="table-nav" onclick="changeDetails('assessor', {{ $value->id }});">Assessor Invoice Details</span> | <span class="table-nav" onclick="changeDetails('survey', {{ $value->id }});">Survey Appointment Details</span></h5>
 </div>
-<table class="table table-striped table-bordered" style="display: none;">
+<table class="table table-striped table-bordered" id="order<?php echo $value->id?>">
 	<thead>
 		<tr>
 			<td>Order Date</td>
@@ -102,7 +102,7 @@
 		</div>
 	</tbody>
 </table>
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered hidden" id="invoice<?php echo $value->id?>">
 	<thead>
 		<tr>
 			<td>Inv No</td>
@@ -133,6 +133,82 @@
 			<td>{{ $value->inv_address }}</td>
 			<td>{{ $value->inv_due_date }}</td>
 			<td>{{ $value->inv_paid_date }}</td>
+
+			<!-- we will also add show, edit, and delete buttons -->
+			<td>
+
+				<!-- delete the nerd (uses the destroy method DESTROY /nerds/{id} -->
+				<!-- we will add this later since its a little more complicated than the other two buttons -->
+
+				<!-- show the nerd (uses the show method found at GET /nerds/{id} -->
+				<!-- <a class="btn btn-small btn-success" href="{{ URL::to('orders/' . $value->id) }}">Show</a> -->
+
+				<!-- edit this nerd (uses the edit method found at GET /nerds/{id}/edit -->
+				<a class="btn btn-small btn-info" href="{{ URL::to('orders/' . $value->id . '/edit') }}">Edit</a>
+
+			</td>
+		</tr>
+		</div>
+	</tbody>
+</table>
+<table class="table table-striped table-bordered hidden" id="assessor<?php echo $value->id?>">
+	<thead>
+		<tr>
+			<td>Assessor Invoice Ref</td>
+			<td>Assessor Amount</td>
+			<td>Assessor VAT</td>
+			<td>Assessor Total</td>
+			<td>Ass Inv Date</td>
+			<td>Ass Inv Status</td>
+			<td>Actions</td>
+		</tr>
+	</thead>
+	<tbody>
+	<div class="content-main">
+		<tr>
+			<td>{{ $value->ass_inv_ref }}</td>
+			<td>{{ $value->ass_inv_amount }}</td>
+			<td>{{ $value->ass_inv_vat }}</td>
+			<td>{{ $value->ass_inv_tot }}</td>
+			<td>{{ $value->ass_inv_date }}</td>
+			<td>{{ $value->ass_inv_status }}</td>
+
+			<!-- we will also add show, edit, and delete buttons -->
+			<td>
+
+				<!-- delete the nerd (uses the destroy method DESTROY /nerds/{id} -->
+				<!-- we will add this later since its a little more complicated than the other two buttons -->
+
+				<!-- show the nerd (uses the show method found at GET /nerds/{id} -->
+				<!-- <a class="btn btn-small btn-success" href="{{ URL::to('orders/' . $value->id) }}">Show</a> -->
+
+				<!-- edit this nerd (uses the edit method found at GET /nerds/{id}/edit -->
+				<a class="btn btn-small btn-info" href="{{ URL::to('orders/' . $value->id . '/edit') }}">Edit</a>
+
+			</td>
+		</tr>
+		</div>
+	</tbody>
+</table>
+<table class="table table-striped table-bordered hidden" id="survey<?php echo $value->id?>">
+	<thead>
+		<tr>
+			<td>Survey Date</td>
+			<td>Survey Time</td>
+			<td>Access Arrangements</td>
+			<td>Access Email</td>
+			<td>Access Address</td>
+			<td>Actions</td>
+		</tr>
+	</thead>
+	<tbody>
+	<div class="content-main">
+		<tr>
+			<td>{{ $value->sur_date }}</td>
+			<td>{{ $value->sur_time }}</td>
+			<td>{{ $value->sur_arr }}</td>
+			<td>{{ $value->sur_email }}</td>
+			<td>{{ $value->sur_address }}</td>
 
 			<!-- we will also add show, edit, and delete buttons -->
 			<td>
