@@ -27,6 +27,7 @@
         <option value="{{ $value->firstname }}">{{ $value->firstname }}</option>
       @endforeach
     </select>
+    
 		{{ Form::text('assessor', null, array('class'=>'form-control', 'placeholder'=>'Assessor')) }}
     {{ Form::select('type', array(''=>'Select Type', 'Commercial'=>'Commercial', 'Domestic'=>'Domestic', 'On Construction'=>'On Construction', 'SBEM New Build'=>'SBEM New Build'), $selected = NULL,  array('class' => 'form-control')) }}
 		{{ Form::select('building_type', array(''=>'Select Building Type', 'Retail Domestic'=>'Retail Domestic', 'Retail'=>'Retail', 'Office'=>'Office', 'Warehouse'=>'Warehouse', 'Warehouse / Offices'=>'Warehouse / Offices', 'Retail Warehouse'=>'Retail Warehouse', 'Industrial'=>'Industrial', 'Public House'=>'Public House', 'Nursing / Care Home'=>'Nursing / Care Home', 'Hotel'=>'Hotel', 'Mixed Development'=>'Mixed Development', 'Restaurant'=>'Restaurant', 'Other'=>'Other',), $selected = NULL,  array('class' => 'form-control')) }}
