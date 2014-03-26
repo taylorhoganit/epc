@@ -1,0 +1,16 @@
+body {
+    padding-top: 20px;
+}
+
+.content-main {
+	margin-top: 10px;
+}
+ 
+.form-signup, .form-signin {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.form-control {
+	margin-bottom: 10px;
+}
