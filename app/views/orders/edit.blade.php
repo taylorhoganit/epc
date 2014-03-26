@@ -27,7 +27,6 @@
         <option value="{{ $value->firstname }}">{{ $value->firstname }}</option>
       @endforeach
     </select>
-    
 		{{ Form::text('assessor', null, array('class'=>'form-control', 'placeholder'=>'Assessor')) }}
     {{ Form::select('type', array(''=>'Select Type', 'Commercial'=>'Commercial', 'Domestic'=>'Domestic', 'On Construction'=>'On Construction', 'SBEM New Build'=>'SBEM New Build'), $selected = NULL,  array('class' => 'form-control')) }}
 		{{ Form::select('building_type', array(''=>'Select Building Type', 'Retail Domestic'=>'Retail Domestic', 'Retail'=>'Retail', 'Office'=>'Office', 'Warehouse'=>'Warehouse', 'Warehouse / Offices'=>'Warehouse / Offices', 'Retail Warehouse'=>'Retail Warehouse', 'Industrial'=>'Industrial', 'Public House'=>'Public House', 'Nursing / Care Home'=>'Nursing / Care Home', 'Hotel'=>'Hotel', 'Mixed Development'=>'Mixed Development', 'Restaurant'=>'Restaurant', 'Other'=>'Other',), $selected = NULL,  array('class' => 'form-control')) }}
@@ -87,7 +86,7 @@
     		{{ Form::text('ass_inv_vat', null, array('class'=>'form-control', 'placeholder'=>'Assessor Invoice VAT')) }}
     		{{ Form::text('ass_inv_tot', null, array('class'=>'form-control', 'placeholder'=>'Assessor Invoice Total')) }}
     		{{ Form::text('ass_inv_date', null, array('class'=>'form-control', 'placeholder'=>'Assessor Invoice Date')) }}
-    		{{ Form::select('inv_status', array(''=>'Select Assessor Invoice Status', 'Submitted'=>'Submitted', 'Approved'=>'Approved', 'Paid'=>'Paid'), $selected = NULL,  array('class' => 'form-control')) }}
+    		{{ Form::select('ass_inv_status', array(''=>'Select Assessor Invoice Status', 'Submitted'=>'Submitted', 'Approved'=>'Approved', 'Paid'=>'Paid'), $selected = NULL,  array('class' => 'form-control')) }}
     		{{ Form::text('ass_inv_due_date', null, array('class'=>'form-control', 'placeholder'=>'Assessor Invoice Due Date')) }}
     		{{ Form::text('ass_inv_paid_date', null, array('class'=>'form-control', 'placeholder'=>'Assessor Invoice Paid Date')) }}
       </div>
