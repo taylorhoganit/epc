@@ -23,11 +23,17 @@
     {{ Form::select('epc_status', array(''=>'Select EPC Status', 'Quoted'=>'Quoted', 'Instructed - To Schedule'=>'Instructed - To Schedule', 'To Survey'=>'To Survey', 'To Input'=>'To Input', 'Awaiting Payment - Report Produced'=>'Awaiting Payment - Report Produced', 'To Send'=>'To Send', 'Completed'=>'Completed', 'Cancelled'=>'Cancelled', 'On Hold'=>'On Hold'), $selected = NULL,  array('class' => 'form-control')) }}
 		<!-- {{ Form::text('agent', null, array('class'=>'form-control', 'placeholder'=>'Agent')) }} -->
     <select name="agent" class="form-control">
-      @foreach($agents as $key => $value)
-        <option value="{{ $value->firstname }}">{{ $value->firstname }}</option>
+      <option value="{{ $order->agent }}">{{ $order->agent }}</option>
+      @foreach(User::where('type', '=', 'Agent')->get() as $agent)
+          <option value="{{ $agent->firstname }} {{ $agent->lastname }}">{{ $agent->firstname }} {{ $agent->lastname }}</option>
+        @endforeach
+    </select>
+    <select name="assessor" class="form-control">
+      <option value="{{ $order->assessor }}">{{ $order->assessor }}</option>
+      @foreach(User::where('type', '=', 'Assessor')->get() as $assessor)
+        <option value="{{ $assessor->firstname }} {{ $assessor->lastname }}">{{ $assessor->firstname }} {{ $assessor->lastname }}</option>
       @endforeach
     </select>
-		{{ Form::text('assessor', null, array('class'=>'form-control', 'placeholder'=>'Assessor')) }}
     {{ Form::select('type', array(''=>'Select Type', 'Commercial'=>'Commercial', 'Domestic'=>'Domestic', 'On Construction'=>'On Construction', 'SBEM New Build'=>'SBEM New Build'), $selected = NULL,  array('class' => 'form-control')) }}
 		{{ Form::select('building_type', array(''=>'Select Building Type', 'Retail Domestic'=>'Retail Domestic', 'Retail'=>'Retail', 'Office'=>'Office', 'Warehouse'=>'Warehouse', 'Warehouse / Offices'=>'Warehouse / Offices', 'Retail Warehouse'=>'Retail Warehouse', 'Industrial'=>'Industrial', 'Public House'=>'Public House', 'Nursing / Care Home'=>'Nursing / Care Home', 'Hotel'=>'Hotel', 'Mixed Development'=>'Mixed Development', 'Restaurant'=>'Restaurant', 'Other'=>'Other',), $selected = NULL,  array('class' => 'form-control')) }}
 		{{ Form::text('net_cost', null, array('class'=>'form-control', 'placeholder'=>'Net Cost')) }}
