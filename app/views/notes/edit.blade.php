@@ -7,12 +7,12 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+        <a href="#collapseOne">
           Order Notes
         </a>
       </h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in">
+    <div id="collapseOne" class="panel-collapse collapse">
       <div class="panel-body">
 		{{ Form::textarea('order_notes', null, array('class'=>'form-control', 'placeholder'=>'Order Notes')) }}
       </div>
@@ -21,7 +21,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+        <a href="#collapseTwo">
           Invoice Notes
         </a>
       </h4>
@@ -35,7 +35,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+        <a href="#collapseThree">
           Assessor Invoice Reference Notes
         </a>
       </h4>
@@ -49,7 +49,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+        <a href="#collapseFour">
           Survey Appointment Details Notes
         </a>
       </h4>

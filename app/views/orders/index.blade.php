@@ -1,3 +1,4 @@
+
 <div class="col-md-12 search">
 	{{ Form::model(null, array('url' => array('orders/index'))) }}
 	<div class="col-md-4">
@@ -54,7 +55,7 @@
 		<h4>{{ $value->address }}, {{ $value->postcode }} | {{ $value->epc_status }} | {{ $value->assessor }}</h4>
 	</div>
 	<div class="col-md-6">
-		<h4 class="text-right"><a class="btn btn-small btn-success" href="{{ URL::to('notes/' . $value->id . '/edit') }}">Notes</a>  <a class="btn btn-small btn-success" href="{{ URL::to('orders/' . $value->id . '/invoice') }}">Create Invoice</a> </h4>
+		<h4 class="text-right"><a class="btn btn-small btn-success" href="{{ URL::to('orders/' . $value->id . '/invoice') }}">Create Invoice</a> </h4>
 	</div>
 	<div class="col-md-4">
 		<h5>Order Details</h5>
@@ -96,6 +97,8 @@
 
 					<!-- show the nerd (uses the show method found at GET /nerds/{id} -->
 					<!-- <a class="btn btn-small btn-success" href="{{ URL::to('orders/' . $value->id) }}">Show</a> -->
+
+					<a class="btn btn-small btn-success" href="{{ URL::to('notes/' . $value->id . '/edit#collapseOne') }}">Notes</a>
 
 					<!-- edit this nerd (uses the edit method found at GET /nerds/{id}/edit -->
 					<a class="btn btn-small btn-info" href="{{ URL::to('orders/' . $value->id . '/edit#collapseOne') }}">Edit</a>
@@ -151,6 +154,8 @@
 					<!-- show the nerd (uses the show method found at GET /nerds/{id} -->
 					<!-- <a class="btn btn-small btn-success" href="{{ URL::to('orders/' . $value->id) }}">Show</a> -->
 
+					<a class="btn btn-small btn-success" href="{{ URL::to('notes/' . $value->id . '/edit#collapseTwo') }}">Notes</a>
+
 					<!-- edit this nerd (uses the edit method found at GET /nerds/{id}/edit -->
 					<a class="btn btn-small btn-info" href="{{ URL::to('orders/' . $value->id . '/edit#collapseTwo') }}">Edit</a>
 
@@ -195,6 +200,8 @@
 					<!-- show the nerd (uses the show method found at GET /nerds/{id} -->
 					<!-- <a class="btn btn-small btn-success" href="{{ URL::to('orders/' . $value->id) }}">Show</a> -->
 
+					<a class="btn btn-small btn-success" href="{{ URL::to('notes/' . $value->id . '/edit#collapseThree') }}">Notes</a>
+
 					<!-- edit this nerd (uses the edit method found at GET /nerds/{id}/edit -->
 					<a class="btn btn-small btn-info" href="{{ URL::to('orders/' . $value->id . '/edit#collapseThree') }}">Edit</a>
 
@@ -236,6 +243,8 @@
 
 					<!-- show the nerd (uses the show method found at GET /nerds/{id} -->
 					<!-- <a class="btn btn-small btn-success" href="{{ URL::to('orders/' . $value->id) }}">Show</a> -->
+
+					<a class="btn btn-small btn-success" href="{{ URL::to('notes/' . $value->id . '/edit#collapseFour') }}">Notes</a>
 
 					<!-- edit this nerd (uses the edit method found at GET /nerds/{id}/edit -->
 					<a class="btn btn-small btn-info" href="{{ URL::to('orders/' . $value->id . '/edit#collapseFour') }}">Edit</a>
