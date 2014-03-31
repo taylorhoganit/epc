@@ -7,7 +7,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a href="#collapseOne">
+        <a data-toggle="collapse" class="nav-tabs" href="#collapseOne">
           Order Notes
         </a>
       </h4>
@@ -21,7 +21,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a href="#collapseTwo">
+        <a data-toggle="collapse" class="nav-tabs" href="#collapseTwo">
           Invoice Notes
         </a>
       </h4>
@@ -35,7 +35,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a href="#collapseThree">
+        <a data-toggle="collapse" class="nav-tabs" href="#collapseThree">
           Assessor Invoice Reference Notes
         </a>
       </h4>
@@ -49,7 +49,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a href="#collapseFour">
+        <a data-toggle="collapse" class="nav-tabs" href="#collapseFour">
           Survey Appointment Details Notes
         </a>
       </h4>

@@ -20,3 +20,11 @@ Route::post('/create', 'OrdersController@saveUser');
 
 Route::resource('notes', 'NotesController');
 Route::resource('user', 'UserController');
+
+Route::post(
+    'orders/search',
+    array(
+        'as' => 'orders.search',
+        'uses' => 'OrdersController@postSearch'
+    )
+);

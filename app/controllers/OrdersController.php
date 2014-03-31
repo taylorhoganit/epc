@@ -273,6 +273,27 @@ class OrdersController extends \BaseController {
 		// redirect
 		Session::flash('message', 'Successfully deleted the Order!');
 		return Redirect::to('orders');
+	}
+
+	public function postSearch()
+	{
+		$search_order_from_date = Input::get('search_order_from_date');
+		$search_order_to_date = Input::get('search_order_to_date');
+		$search_order_type = Input::get('search_order_type');
+		$search_order_status = Input::get('search_order_status');
+		$search_order_agent = Input::get('search_order_agent');
+		$search_order_assessor = Input::get('search_order_assessor');
+		$search_order_postcode = Input::get('search_order_postcode');
+		
+		$orders = DB::table('orders')
+		->where('order_date', '>=', $search_order_from_date, 'and', 'order_date', '<=', $search_order_to_date, 'or')
+		->where('type', '=', $search_order_type, 'or')
+		->where('agent', '=', $search_order_agent, 'or')
+		->where('assessor', '=', $search_order_assessor, 'or')
+		->where('postcode', '=', $search_order_postcode, 'or')
+		->paginate(10);
+		$users = User::all();
+		$this->layout->content = View::make('orders.index', compact('orders'), compact('agents'));
 	}	
 
 }

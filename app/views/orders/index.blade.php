@@ -1,6 +1,7 @@
 
 <div class="col-md-12 search">
-	{{ Form::model(null, array('url' => array('orders/index'))) }}
+	{{ Form::model(null, array('route' => array('orders.search'))) }}
+
 	<div class="col-md-4">
 		Order Date<br>
 		{{ Form::text('search_order_from_date', null, array('class'=>'form-control half', 'placeholder'=>'Order From')) }}
@@ -39,7 +40,7 @@
 	<div class="clearfix"></div>
 	<div class="cod-md-4">
 		{{ Form::submit('Search', array('class'=>'btn btn-small btn-success search-btn')) }}
-		<a class="btn btn-small btn-info" href="orders">Reset</a>
+		<a class="btn btn-small btn-info" href="/orders">Reset</a>
 		{{ Form::close() }}
 	</div>
 		
