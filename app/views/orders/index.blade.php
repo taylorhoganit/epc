@@ -81,14 +81,62 @@
 		<tbody>
 		<div class="content-main">
 			<tr>
-				<td>{{ $value->order_date }}</td>
-				<td>{{ $value->agent }}</td>
-				<td>{{ $value->type }}</td>
-				<td>{{ $value->net_cost }}</td>
-				<td>{{ $value->epc_name }}</td>
-				<td>{{ $value->epc_tel }}</td>
-				<td>{{ $value->epc_email }}</td>
-				<td>{{ $value->assessor }}</td>
+				<td>
+					@if ($perms->order_date == true)
+						{{ $value->order_date }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->agent == true)
+						{{ $value->agent }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->type == true)
+						{{ $value->type }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->net_cost == true)
+						{{ $value->net_cost }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->epc_name == true)
+						{{ $value->epc_name }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->epc_tel == true)
+						{{ $value->epc_tel }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->epc_email == true)
+						{{ $value->epc_email }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->assessor == true)
+						{{ $value->assessor }}
+					@else
+					    N/A
+					@endif
+				</td>
 
 				<!-- we will also add show, edit, and delete buttons -->
 				<td class="actions-col">
@@ -134,17 +182,83 @@
 		<tbody>
 		<div class="content-main">
 			<tr>
-				<td>{{ $value->inv_num }}</td>
-				<td>{{ $value->inv_net }}</td>
-				<td>{{ $value->inv_vat }}</td>
-				<td>{{ $value->inv_tot }}</td>
-				<td>{{ $value->inv_date }}</td>
-				<td>{{ $value->inv_status }}</td>
-				<td>{{ $value->inv_name }}</td>
-				<td>{{ $value->inv_email }}</td>
-				<td>{{ $value->inv_address }}</td>
-				<td>{{ $value->inv_due_date }}</td>
-				<td>{{ $value->inv_paid_date }}</td>
+				<td>
+					@if ($perms->inv_num == true)
+						{{ $value->inv_num }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->inv_net == true)
+						{{ $value->inv_net }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->inv_vat == true)
+						{{ $value->inv_vat }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->inv_tot == true)
+						{{ $value->inv_tot }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->inv_date == true)
+						{{ $value->inv_date }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->inv_status == true)
+						{{ $value->inv_status }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->inv_name == true)
+						{{ $value->inv_name }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->inv_email == true)
+						{{ $value->inv_email }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->inv_address == true)
+						{{ $value->inv_address }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->inv_due_date == true)
+						{{ $value->inv_due_date }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->inv_paid_date == true)
+						{{ $value->inv_paid_date }}
+					@else
+					    N/A
+					@endif
+				</td>
 
 				<!-- we will also add show, edit, and delete buttons -->
 				<td class="actions-col">
@@ -185,12 +299,48 @@
 		<tbody>
 		<div class="content-main">
 			<tr>
-				<td>{{ $value->ass_inv_ref }}</td>
-				<td>{{ $value->ass_inv_amount }}</td>
-				<td>{{ $value->ass_inv_vat }}</td>
-				<td>{{ $value->ass_inv_tot }}</td>
-				<td>{{ $value->ass_inv_date }}</td>
-				<td>{{ $value->ass_inv_status }}</td>
+				<td>
+					@if ($perms->ass_inv_ref == true)
+						{{ $value->ass_inv_ref }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->ass_inv_amount == true)
+						{{ $value->ass_inv_amount }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->ass_inv_vat == true)
+						{{ $value->ass_inv_vat }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->ass_inv_tot == true)
+						{{ $value->ass_inv_tot }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->ass_inv_date == true)
+						{{ $value->ass_inv_date }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->ass_inv_status == true)
+						{{ $value->ass_inv_status }}
+					@else
+					    N/A
+					@endif
+				</td>
 
 				<!-- we will also add show, edit, and delete buttons -->
 				<td class="actions-col">
@@ -230,11 +380,41 @@
 		<tbody>
 		<div class="content-main">
 			<tr>
-				<td>{{ $value->sur_date }}</td>
-				<td>{{ $value->sur_time }}</td>
-				<td>{{ $value->sur_arr }}</td>
-				<td>{{ $value->sur_email }}</td>
-				<td>{{ $value->sur_address }}</td>
+				<td>
+					@if ($perms->sur_date == true)
+						{{ $value->sur_date }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->sur_time == true)
+						{{ $value->sur_time }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->sur_arr == true)
+						{{ $value->sur_arr }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->sur_email == true)
+						{{ $value->sur_email }}
+					@else
+					    N/A
+					@endif
+				</td>
+				<td>
+					@if ($perms->sur_address == true)
+						{{ $value->sur_address }}
+					@else
+					    N/A
+					@endif
+				</td>
 
 				<!-- we will also add show, edit, and delete buttons -->
 				<td class="actions-col">

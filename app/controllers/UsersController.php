@@ -56,6 +56,8 @@ class UsersController extends BaseController {
 
 	public function postSignin() {
         if (Auth::attempt(array('email'=>Input::get('email'), 'password'=>Input::get('password')))) {
+        	$userType = DB::table('users')->where('email', Input::get('email'))->pluck('type');
+        	Session::put('type', $userType);
 		    return Redirect::to('users/dashboard')->with('message', 'You are now logged in!');
 			} else {
 			    return Redirect::to('users/login')

@@ -16,9 +16,11 @@ class OrdersController extends \BaseController {
 	public function index()
 	{
 		//$orders = Order::all();
-		$orders = DB::table('orders')->paginate(10);
+		$orders = DB::table('orders')->paginate(3);
 		$users = User::all();
-		$this->layout->content = View::make('orders.index', compact('orders'), compact('agents'));
+		$userType = Session::get('type');
+		$perms = DB::table('permissions')->where('user_type', $userType)->first();
+		$this->layout->content = View::make('orders.index', compact('orders'), compact('perms'));
 	}
 
 	/**
@@ -151,9 +153,9 @@ class OrdersController extends \BaseController {
 	public function edit($id)
 	{
 		$order = Order::find($id);
-		$agents = User::all();
-
-		$this->layout->content = View::make('orders.edit', compact('order'), compact('agents'));
+		$userType = Session::get('type');
+		$perms = DB::table('permissions')->where('user_type', $userType)->first();
+		$this->layout->content = View::make('orders.edit', compact('order'), compact('perms'));
 	}
 
 	/**
@@ -164,19 +166,6 @@ class OrdersController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		// $order = Order::findOrFail($id);
-
-		// $validator = Validator::make($data = Input::all(), Order::$rules);
-
-		// if ($validator->fails())
-		// {
-		// 	return Redirect::back()->withErrors($validator)->withInput();
-		// }
-
-		// $order->update($data);
-
-		// return Redirect::route('orders.index');
-
 		// validate
 		// read more on validation at http://laravel.com/docs/validation
 		$rules = array(
@@ -187,71 +176,73 @@ class OrdersController extends \BaseController {
 			'postcode'       => 'required',
 		);
 		$validator = Validator::make(Input::all(), $rules);
-
+		$userType = Session::get('type');
+		$perms = DB::table('permissions')->where('user_type', $userType)->first();
 		// process the login
 		if ($validator->fails()) {
 			return Redirect::to('orders/' . $id . '/edit')
 				->withErrors($validator)
 				->withInput(Input::except('password'));
 		} else {
-			// store
-
-			$order = Order::find($id);
-			// Order Details
-			$order->order_date       = Input::get('order_date');
-			$order->epc_name       = Input::get('epc_name');
-			$order->epc_tel       = Input::get('epc_tel');
-			$order->epc_email      = Input::get('epc_email');
-			$order->address       = Input::get('address');
-			$order->postcode       = Input::get('postcode');
-			$order->epc_status       = Input::get('epc_status');
-			$order->agent       = Input::get('agent');
-			$order->assessor       = Input::get('assessor');
-			$order->type       = Input::get('type');
-			$order->building_type       = Input::get('building_type');
-			$order->net_cost       = Input::get('net_cost');
-			$order->floor_plans      = Input::get('floor_plans');
-			$order->size       = Input::get('size');
-			$order->size_type       = Input::get('size_type');
-			$order->stories      = Input::get('stories');
-			$order->time       = Input::get('time');
-			$order->doc1       = Input::get('doc1');
-			$order->doc2       = Input::get('doc2');
-			$order->doc3       = Input::get('doc3');
-			$order->doc4       = Input::get('doc4');
-			$order->doc5       = Input::get('doc5');
-			// Invoice Details
-			$order->inv_num       = Input::get('inv_num');
-			$order->inv_net       = Input::get('inv_net');
-			$order->inv_vat       = Input::get('inv_vat');
-			$order->inv_tot       = Input::get('inv_tot');
-			$order->inv_date       = Input::get('inv_date');
-			$order->inv_status       = Input::get('inv_status');
-			$order->inv_name       = Input::get('inv_name');
-			$order->inv_email       = Input::get('inv_email');
-			$order->inv_address       = Input::get('inv_address');
-			$order->inv_postcode       = Input::get('inv_postcode');
-			$order->inv_due_date       = Input::get('inv_due_date');	
-			$order->inv_paid_date       = Input::get('inv_paid_date');
-			$order->method       = Input::get('method');
-			// Assessor Invoice Reference
-			$order->ass_inv_ref       = Input::get('ass_inv_ref');
-			$order->ass_inv_amount       = Input::get('ass_inv_amount');
-			$order->ass_inv_vat       = Input::get('ass_inv_vat');
-			$order->ass_inv_tot       = Input::get('ass_inv_tot');
-			$order->ass_inv_date       = Input::get('ass_inv_date');
-			$order->ass_inv_status       = Input::get('ass_inv_status');
-			$order->ass_inv_due_date       = Input::get('ass_inv_due_date');
-			$order->ass_inv_paid_date       = Input::get('ass_inv_paid_date');
-			// Survey Appointment Details
-			$order->sur_date       = Input::get('sur_date');
-			$order->sur_time       = Input::get('sur_time');
-			$order->sur_arr       = Input::get('sur_arr');
-			$order->sur_email       = Input::get('sur_email');
-			$order->sur_address       = Input::get('sur_address');
-			$order->sur_postcode       = Input::get('sur_postcode');
-			$order->save();
-
+			if ($userType == 'Super')
+			{
+				// store SUPER
+				$order = Order::find($id);
+				// Order Details
+				$order->order_date       = Input::get('order_date');
+				$order->epc_name       = Input::get('epc_name');
+				$order->epc_tel       = Input::get('epc_tel');
+				$order->epc_email      = Input::get('epc_email');
+				$order->address       = Input::get('address');
+				$order->postcode       = Input::get('postcode');
+				$order->epc_status       = Input::get('epc_status');
+				$order->agent       = Input::get('agent');
+				$order->assessor       = Input::get('assessor');
+				$order->type       = Input::get('type');
+				$order->building_type       = Input::get('building_type');
+				$order->net_cost       = Input::get('net_cost');
+				$order->floor_plans      = Input::get('floor_plans');
+				$order->size       = Input::get('size');
+				$order->size_type       = Input::get('size_type');
+				$order->stories      = Input::get('stories');
+				$order->time       = Input::get('time');
+				$order->doc1       = Input::get('doc1');
+				$order->doc2       = Input::get('doc2');
+				$order->doc3       = Input::get('doc3');
+				$order->doc4       = Input::get('doc4');
+				$order->doc5       = Input::get('doc5');
+				// Invoice Details
+				$order->inv_num       = Input::get('inv_num');
+				$order->inv_net       = Input::get('inv_net');
+				$order->inv_vat       = Input::get('inv_vat');
+				$order->inv_tot       = Input::get('inv_tot');
+				$order->inv_date       = Input::get('inv_date');
+				$order->inv_status       = Input::get('inv_status');
+				$order->inv_name       = Input::get('inv_name');
+				$order->inv_email       = Input::get('inv_email');
+				$order->inv_address       = Input::get('inv_address');
+				$order->inv_postcode       = Input::get('inv_postcode');
+				$order->inv_due_date       = Input::get('inv_due_date');	
+				$order->inv_paid_date       = Input::get('inv_paid_date');
+				$order->method       = Input::get('method');
+				// Assessor Invoice Reference
+				$order->ass_inv_ref       = Input::get('ass_inv_ref');
+				$order->ass_inv_amount       = Input::get('ass_inv_amount');
+				$order->ass_inv_vat       = Input::get('ass_inv_vat');
+				$order->ass_inv_tot       = Input::get('ass_inv_tot');
+				$order->ass_inv_date       = Input::get('ass_inv_date');
+				$order->ass_inv_status       = Input::get('ass_inv_status');
+				$order->ass_inv_due_date       = Input::get('ass_inv_due_date');
+				$order->ass_inv_paid_date       = Input::get('ass_inv_paid_date');
+				// Survey Appointment Details
+				$order->sur_date       = Input::get('sur_date');
+				$order->sur_time       = Input::get('sur_time');
+				$order->sur_arr       = Input::get('sur_arr');
+				$order->sur_email       = Input::get('sur_email');
+				$order->sur_address       = Input::get('sur_address');
+				$order->sur_postcode       = Input::get('sur_postcode');
+				$order->save();
+			}
 			// redirect
 			Session::flash('message', 'Successfully updated Order!');
 			return Redirect::to('orders');

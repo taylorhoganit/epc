@@ -20,6 +20,8 @@ Route::post('/create', 'OrdersController@saveUser');
 
 Route::resource('notes', 'NotesController');
 Route::resource('user', 'UserController');
+Route::resource('invoices', 'InvoicesController');
+Route::resource('permissions', 'PermissionsController');
 
 Route::post(
     'orders/search',

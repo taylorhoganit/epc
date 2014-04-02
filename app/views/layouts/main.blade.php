@@ -78,7 +78,10 @@
       </div>
       <ul class="nav navbar-nav">
         <li><a href="{{ URL::to('orders') }}">Active Orders</a></li>
+        @if (Session::get('type') == 'Super')
         <li><a href="{{ URL::to('orders/create') }}">Create an Order</a>
+        @endif
+        <li><a href="{{ URL::to('invoices') }}">Invoice List</a>
       </ul>
      <!--  <ul class="nav navbar-nav navbar-right">
         <li><a href="">name </a></li>

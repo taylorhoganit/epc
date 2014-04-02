@@ -1,7 +1,7 @@
 <?php
 
-class InvoiceController extends \BaseController {
-
+class InvoicesController extends \BaseController {
+	protected $layout = "layouts.main";
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -9,7 +9,7 @@ class InvoiceController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$this->layout->content = View::make('invoices.index');
 	}
 
 	/**
