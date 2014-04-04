@@ -22,6 +22,7 @@ Route::resource('notes', 'NotesController');
 Route::resource('user', 'UserController');
 Route::resource('invoices', 'InvoicesController');
 Route::resource('permissions', 'PermissionsController');
+Route::resource('new', 'NewController');
 
 Route::post(
     'orders/search',

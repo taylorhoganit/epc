@@ -10,4 +10,4 @@
 <br><br>
 <a href="{{ URL::to('permissions') }}">Edit Permissions</a>	
 <br><br>
-<a href="{{ URL::to('orders/new') }}">New Jobs ({{ count($newJobs) }})</a>	
+<a href="{{ URL::to('new') }}">New Jobs ({{ count($newJobs) }})</a>	
