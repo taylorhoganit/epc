@@ -441,7 +441,23 @@
 			</div>
 		</tbody>
 	</table>
-	<h4>{{ $value->doc1 }} | {{ $value->doc2 }} | {{ $value->doc3 }} | {{ $value->doc4 }} | {{ $value->doc5 }} </h4>
+	<h4>
+		@if ($value->doc1 != "")
+		<a href="/uploads/{{ $value->doc1 }}" target="_BLANK" class="btn btn-small btn-info">Doc 1</a>
+		@endif 
+		@if ($value->doc2 != "")
+		<a href="/uploads/{{ $value->doc2 }}" target="_BLANK" class="btn btn-small btn-info">Doc 2</a>
+		@endif 
+		@if ($value->doc3 != "")
+		<a href="/uploads/{{ $value->doc3 }}" target="_BLANK" class="btn btn-small btn-info">Doc 3</a>
+		@endif 
+		@if ($value->doc4 != "")
+		<a href="/uploads/{{ $value->doc4 }}" target="_BLANK" class="btn btn-small btn-info">Doc 4</a>
+		@endif 
+		@if ($value->doc5 != "")
+		<a href="/uploads/{{ $value->doc5 }}" target="_BLANK" class="btn btn-small btn-info">Doc 5</a>
+		@endif 
+	</h4>
 </div>
 <hr>
 @endforeach

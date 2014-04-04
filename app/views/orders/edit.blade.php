@@ -161,40 +161,45 @@
           {{ Form::text('text', null, array('class'=>'form-control datepicker', 'placeholder'=>'N/A', 'READONLY')) }}
         @endif
         <!-- Doc 1 -->
+        {{ Form::label('doc1', 'Doc 1') }}
         @if ($perms->doc1 == '2')
-          {{ Form::text('doc1', null, array('class'=>'form-control', 'placeholder'=>'Doc 1')) }}
+          {{ Form::file('doc1', array('class'=>'form-control')) }}
         @elseif ($perms->doc1 == '1')
           {{ Form::text('doc1', null, array('class'=>'form-control datepicker', 'placeholder'=>'Doc 1', 'READONLY')) }} 
         @else 
           {{ Form::text('text', null, array('class'=>'form-control datepicker', 'placeholder'=>'N/A', 'READONLY')) }}
         @endif
         <!-- Doc 2 -->
+        {{ Form::label('doc2', 'Doc 2') }}
         @if ($perms->doc2 == '2')
-          {{ Form::text('doc2', null, array('class'=>'form-control', 'placeholder'=>'Doc 2')) }}
+          {{ Form::file('doc2', array('class'=>'form-control')) }}
         @elseif ($perms->doc2 == '1')
           {{ Form::text('doc2', null, array('class'=>'form-control datepicker', 'placeholder'=>'Doc 2', 'READONLY')) }} 
         @else 
           {{ Form::text('text', null, array('class'=>'form-control datepicker', 'placeholder'=>'N/A', 'READONLY')) }}
         @endif
         <!-- Doc 3 -->
+        {{ Form::label('doc3', 'Doc 3') }}
         @if ($perms->doc3 == '2')
-          {{ Form::text('doc3', null, array('class'=>'form-control', 'placeholder'=>'Doc 3')) }}
+          {{ Form::file('doc3', array('class'=>'form-control')) }}
         @elseif ($perms->doc3 == '1')
           {{ Form::text('doc3', null, array('class'=>'form-control datepicker', 'placeholder'=>'Doc 3', 'READONLY')) }} 
         @else 
           {{ Form::text('text', null, array('class'=>'form-control datepicker', 'placeholder'=>'N/A', 'READONLY')) }}
         @endif
         <!-- Doc 4 -->
+        {{ Form::label('doc4', 'Doc 4') }}
         @if ($perms->doc4 == '2')
-          {{ Form::text('doc4', null, array('class'=>'form-control', 'placeholder'=>'Doc 4')) }}
+          {{ Form::file('doc4', array('class'=>'form-control')) }}
         @elseif ($perms->doc4 == '1')
           {{ Form::text('doc4', null, array('class'=>'form-control datepicker', 'placeholder'=>'Doc 4', 'READONLY')) }} 
         @else 
           {{ Form::text('text', null, array('class'=>'form-control datepicker', 'placeholder'=>'N/A', 'READONLY')) }}
         @endif
         <!-- Doc 5 -->
+        {{ Form::label('doc5', 'Doc 5') }}
         @if ($perms->doc5 == '2')
-          {{ Form::text('doc5', null, array('class'=>'form-control', 'placeholder'=>'Doc 5')) }}
+          {{ Form::file('doc5', array('class'=>'form-control')) }}
         @elseif ($perms->doc5 == '1')
           {{ Form::text('doc5', null, array('class'=>'form-control datepicker', 'placeholder'=>'Doc 5', 'READONLY')) }} 
         @else 

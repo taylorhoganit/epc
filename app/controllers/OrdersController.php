@@ -186,6 +186,7 @@ class OrdersController extends \BaseController {
 		} else {
 			if ($userType == 'Super')
 			{
+				$destinationPath    = 'public/uploads/'; // The destination were you store the image.
 				// store SUPER
 				$order = Order::find($id);
 				// Order Details
@@ -206,11 +207,61 @@ class OrdersController extends \BaseController {
 				$order->size_type       = Input::get('size_type');
 				$order->stories      = Input::get('stories');
 				$order->time       = Input::get('time');
-				$order->doc1       = Input::get('doc1');
-				$order->doc2       = Input::get('doc2');
-				$order->doc3       = Input::get('doc3');
-				$order->doc4       = Input::get('doc4');
-				$order->doc5       = Input::get('doc5');
+				if(Input::file('doc1') != "")
+				{
+					// Get the image input
+				    $doc1 = Input::file('doc1');
+				    //$filename           = $doc1->getClientOriginalName(); // Original file name that the end user used for it.
+				    $mime_type          = $doc1->getMimeType(); // Gets this example image/png
+			   	    $extension          = $doc1->getClientOriginalExtension(); // The original extension that the user used example .jpg or .png.
+					$filename           = str_random(12).'.'.$extension; // Original file name that the end user used for it.
+					$upload_success     = $doc1->move($destinationPath, $filename); // Now we move the file to its new home.
+					$order->doc1       = $filename;
+				}
+				if(Input::file('doc2') != "")
+				{
+					// Get the image input
+				    $doc2 = Input::file('doc2');
+				    //$filename           = $doc1->getClientOriginalName(); // Original file name that the end user used for it.
+				    $mime_type          = $doc2->getMimeType(); // Gets this example image/png
+			   	    $extension          = $doc2->getClientOriginalExtension(); // The original extension that the user used example .jpg or .png.
+					$filename           = str_random(12).'.'.$extension; // Original file name that the end user used for it.
+					$upload_success     = $doc2->move($destinationPath, $filename); // Now we move the file to its new home.
+					$order->doc2       = $filename;
+				}
+				if(Input::file('doc3') != "")
+				{
+					// Get the image input
+				    $doc3 = Input::file('doc3');
+				    //$filename           = $doc1->getClientOriginalName(); // Original file name that the end user used for it.
+				    $mime_type          = $doc3->getMimeType(); // Gets this example image/png
+			   	    $extension          = $doc3->getClientOriginalExtension(); // The original extension that the user used example .jpg or .png.
+					$filename           = str_random(12).'.'.$extension; // Original file name that the end user used for it.
+					$upload_success     = $doc3->move($destinationPath, $filename); // Now we move the file to its new home.
+					$order->doc3       = $filename;
+				}
+				if(Input::file('doc4') != "")
+				{
+					// Get the image input
+				    $doc4 = Input::file('doc4');
+				    //$filename           = $doc1->getClientOriginalName(); // Original file name that the end user used for it.
+				    $mime_type          = $doc4->getMimeType(); // Gets this example image/png
+			   	    $extension          = $doc4->getClientOriginalExtension(); // The original extension that the user used example .jpg or .png.
+					$filename           = str_random(12).'.'.$extension; // Original file name that the end user used for it.
+					$upload_success     = $doc4->move($destinationPath, $filename); // Now we move the file to its new home.
+					$order->doc4       = $filename;
+				}
+				if(Input::file('doc5') != "")
+				{
+					// Get the image input
+				    $doc5 = Input::file('doc5');
+				    //$filename           = $doc1->getClientOriginalName(); // Original file name that the end user used for it.
+				    $mime_type          = $doc5->getMimeType(); // Gets this example image/png
+			   	    $extension          = $doc5->getClientOriginalExtension(); // The original extension that the user used example .jpg or .png.
+					$filename           = str_random(12).'.'.$extension; // Original file name that the end user used for it.
+					$upload_success     = $doc5->move($destinationPath, $filename); // Now we move the file to its new home.
+					$order->doc5       = $filename;
+				}
 				// Invoice Details
 				$order->inv_num       = Input::get('inv_num');
 				$order->inv_net       = Input::get('inv_net');
