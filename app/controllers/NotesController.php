@@ -52,8 +52,9 @@ class NotesController extends \BaseController {
 	public function edit($id)
 	{
 		$order = Order::find($id);
-
-		$this->layout->content = View::make('notes.edit', compact('order'));
+		$userType = Session::get('type');
+		$perms = DB::table('permissions')->where('user_type', $userType)->first();
+		$this->layout->content = View::make('notes.edit', compact('order'), compact('perms'));
 	}
 
 	/**

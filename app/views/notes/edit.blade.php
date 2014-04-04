@@ -14,7 +14,13 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse">
       <div class="panel-body">
-		{{ Form::textarea('order_notes', null, array('class'=>'form-control', 'placeholder'=>'Order Notes')) }}
+        @if ($perms->order_notes == '2')
+          {{ Form::textarea('order_notes', null, array('class'=>'form-control', 'placeholder'=>'Order Notes')) }} 
+        @elseif ($perms->order_notes == '1')
+          {{ Form::textarea('order_notes', null, array('class'=>'form-control', 'placeholder'=>'Order Notes', 'READONLY')) }}
+        @else 
+          {{ Form::textarea('text', null, array('class'=>'form-control', 'placeholder'=>'N/A', 'READONLY')) }}
+        @endif
       </div>
     </div>
   </div>
@@ -28,7 +34,13 @@
     </div>
     <div id="collapseTwo" class="panel-collapse collapse">
       <div class="panel-body">
-        {{ Form::textarea('inv_notes', null, array('class'=>'form-control', 'placeholder'=>'Invoice Notes')) }}
+        @if ($perms->inv_notes == '2')
+          {{ Form::textarea('inv_notes', null, array('class'=>'form-control', 'placeholder'=>'Invoice Notes')) }} 
+        @elseif ($perms->inv_notes == '1')
+          {{ Form::textarea('inv_notes', null, array('class'=>'form-control', 'placeholder'=>'Invoice Notes', 'READONLY')) }}
+        @else 
+          {{ Form::textarea('text', null, array('class'=>'form-control', 'placeholder'=>'N/A', 'READONLY')) }}
+        @endif
       </div>
     </div>
   </div>
@@ -42,7 +54,13 @@
     </div>
     <div id="collapseThree" class="panel-collapse collapse">
       <div class="panel-body">
-        {{ Form::textarea('ass_notes', null, array('class'=>'form-control', 'placeholder'=>'Assessor Invoice Notes')) }}
+        @if ($perms->ass_notes == '2')
+          {{ Form::textarea('ass_notes', null, array('class'=>'form-control', 'placeholder'=>'Assessor Invoice Notes')) }}
+        @elseif ($perms->ass_notes == '1')
+          {{ Form::textarea('ass_notes', null, array('class'=>'form-control', 'placeholder'=>'Assessor Invoice Notes', 'READONLY')) }}
+        @else 
+          {{ Form::textarea('text', null, array('class'=>'form-control', 'placeholder'=>'N/A', 'READONLY')) }}
+        @endif
       </div>
     </div>
   </div>
@@ -56,7 +74,13 @@
     </div>
     <div id="collapseFour" class="panel-collapse collapse">
       <div class="panel-body">
-		{{ Form::textarea('sur_notes', null, array('class'=>'form-control', 'placeholder'=>'Survey Appointment Notes')) }}
+        @if ($perms->sur_notes == '2')
+          {{ Form::textarea('sur_notes', null, array('class'=>'form-control', 'placeholder'=>'Survey Appointment Notes')) }}
+        @elseif ($perms->sur_notes == '1')
+          {{ Form::textarea('sur_notes', null, array('class'=>'form-control', 'placeholder'=>'Survey Appointment Notes', 'READONLY')) }}
+        @else 
+          {{ Form::textarea('text', null, array('class'=>'form-control', 'placeholder'=>'N/A', 'READONLY')) }}
+        @endif
       </div>
     </div>
   </div>

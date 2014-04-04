@@ -155,6 +155,27 @@
       </div>
     </div>
   </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" class="nav-tabs" href="#collapseFive">
+          Notes Permissions
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse">
+      <div class="panel-body">
+		{{ Form::label('order_notes', 'Order Notes') }}
+		{{ Form::text('order_notes', null, array('class'=>'form-control')) }}
+		{{ Form::label('inv_notes', 'Invoice Notes') }}
+		{{ Form::text('inv_notes', null, array('class'=>'form-control')) }}
+		{{ Form::label('ass_notes', 'Assessor Invoice Notes') }}
+		{{ Form::text('ass_notes', null, array('class'=>'form-control')) }}
+		{{ Form::label('sur_notes', 'Survey Notes') }}
+		{{ Form::text('sur_notes', null, array('class'=>'form-control')) }}
+      </div>
+    </div>
+  </div>
 </div>	
 
 {{ Form::submit('Update', array('class' => 'btn btn-primary')) }}

@@ -118,6 +118,11 @@ class PermissionsController extends \BaseController {
 		$permission->sur_email = Input::get('sur_email');
 		$permission->sur_address = Input::get('sur_address');
 		$permission->sur_postcode = Input::get('sur_postcode');
+		// Notes Permissions
+		$permission->order_notes = Input::get('order_notes');
+		$permission->inv_notes = Input::get('inv_notes');
+		$permission->ass_notes = Input::get('ass_notes');
+		$permission->sur_notes = Input::get('sur_notes');
 		$permission->save();
 
 		// redirect
