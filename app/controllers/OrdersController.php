@@ -241,6 +241,7 @@ class OrdersController extends \BaseController {
 				$order->sur_email       = Input::get('sur_email');
 				$order->sur_address       = Input::get('sur_address');
 				$order->sur_postcode       = Input::get('sur_postcode');
+				$order->new_job       = '0';
 				$order->save();
 			}
 			// redirect
