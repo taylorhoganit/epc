@@ -67,7 +67,10 @@ class UsersController extends BaseController {
 	}
 
 	public function getDashboard() {
-     	$this->layout->content = View::make('users.dashboard');
+		$newJobs = DB::table('orders')
+			->where('new_job', '=', '1')
+			->get();
+     	$this->layout->content = View::make('users.dashboard', compact('newJobs'));
 	}
 
 	public function getList()

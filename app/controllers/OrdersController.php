@@ -278,13 +278,17 @@ class OrdersController extends \BaseController {
 		
 		$orders = DB::table('orders')
 		->where('order_date', '>=', $search_order_from_date, 'and', 'order_date', '<=', $search_order_to_date, 'or')
-		->where('type', '=', $search_order_type, 'or')
-		->where('agent', '=', $search_order_agent, 'or')
-		->where('assessor', '=', $search_order_assessor, 'or')
-		->where('postcode', '=', $search_order_postcode, 'or')
-		->paginate(10);
+		->orWhere('type', '=', $search_order_type)
+		->orWhere('epc_status', '=', $search_order_status)
+		->orWhere('agent', '=', $search_order_agent)
+		->orWhere('assessor', '=', $search_order_assessor)
+		->orWhere('postcode', '=', $search_order_postcode)
+		->paginate();
+		Session::put('search', 'search query');
 		$users = User::all();
-		$this->layout->content = View::make('orders.index', compact('orders'), compact('agents'));
+		$userType = Session::get('type');
+		$perms = DB::table('permissions')->where('user_type', $userType)->first();
+		$this->layout->content = View::make('orders.index', compact('orders'), compact('perms'));
 	}	
 
 }

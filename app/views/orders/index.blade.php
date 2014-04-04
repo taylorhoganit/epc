@@ -46,6 +46,7 @@
 		
 </div>
 <h1>Jobs</h1>
+<!-- {{ Session::get('search'); }} -->
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
 	<div class="alert alert-info">{{ Session::get('message') }}</div>
